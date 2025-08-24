@@ -1,0 +1,257 @@
+ 1
+ // components/Header.tsx
+import React from "react";
+
+export default function Header() {
+  return (
+    <header className="fixed top-0 left-0 w-full z-50 bg-white flex justify-between items-center px-10 py-4 shadow-md">
+      <div className="flex items-center gap-3">
+        <img src="/logo.png" alt="WT Softech" className="w-10 h-10" />
+        <h1 className="font-bold text-lg">WT SOFTECH</h1>
+      </div>
+      <nav className="flex gap-8">
+        <a href="#" className="hover:text-blue-600">Home</a>
+        <a href="#" className="hover:text-blue-600">About Us</a>
+        <a href="#" className="text-blue-600 font-medium">Services</a>
+        <a href="#" className="hover:text-blue-600">Blogs</a>
+        <a href="#" className="hover:text-blue-600">Careers</a>
+        <a href="#" className="hover:text-blue-600">Contact us</a>
+      </nav>
+      <div className="flex gap-3">
+        <button className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-1.5 rounded-md">
+          Login
+        </button>
+        <button className="border border-blue-600 text-blue-600 px-4 py-1.5 rounded-md">
+          Signup
+        </button>
+      </div>
+    </header>
+  );
+}
+2nd
+ import Image from "next/image";
+
+export default function Wave() {
+  return (
+    <main>
+      {/* Hero Section */}
+      <section className="relative flex flex-col items-center text-center py-25">
+        {/* Decorative left wave */}
+        <div className="absolute left-12 top-52">
+          <Image src="/wave-left.png" alt="wave" width={50} height={50} />
+        </div>
+
+        {/* Decorative right wave */}
+        <div className="absolute right-12 top-52">
+          <Image src="/wave-right.png" alt="wave" width={50} height={50} />
+        </div>
+
+        <h2 className="text-lg text-blue-900 font-medium">Home/Services</h2>
+        <h1 className="text-5xl font-extrabold text-gray-900 mt-3">Services</h1>
+        <p className="text-gray-500 max-w-xl mt-8">
+          We will help a client&apos;s problems to develop the products they
+          have with high quality Change the appearance.
+        </p>
+      </section>
+    </main>
+  );
+}
+3rd
+import Image from "next/image";
+
+export default function Photos() {
+  return (
+    <section className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      {/* Left Content */}
+      <div>
+        <h2 className="text-4xl md:text-5xl font-extrabold leading-snug text-gray-900">
+          We <span className="underline decoration-blue-600">Recognise</span>, Realise & <br />
+          Render Results That <br /> Speak Volumes
+        </h2>
+        <p className="text-gray-600 mt-6 leading-relaxed">
+          Our motto is simple! We let our work speak for the worth we can add to your business. 
+          We are quite straightforward in our dealings – understanding your needs, conducting heavy 
+          discussions, offering inputs, and starting work with zeal and commitment. 
+          We don’t promise 6x results in 30 days. We keep it real! Things take time! 
+          But the result is always the sweetest deal you cannot miss.
+        </p>
+      </div>
+
+      {/* Right Images */}
+      <div className="flex gap-6 justify-center">
+        {/* First Image */}
+        <div className="w-40 h-80 rounded-2xl overflow-hidden shadow-md">
+          <Image
+            src="/img1.jpg"
+            alt="Work Desk 1"
+            width={300}
+            height={600}
+            className="object-cover w-full h-full"
+          />
+        </div>
+
+        {/* Second Image (pushed down) */}
+        <div className="w-40 h-80 rounded-2xl overflow-hidden shadow-md mt-10">
+          <Image
+            src="/img2.jpg"
+            alt="Work Desk 2"
+            width={300}
+            height={600}
+            className="object-cover w-full h-full"
+          />
+        </div>
+
+        {/* Third Image */}
+        <div className="w-40 h-80 rounded-2xl overflow-hidden shadow-md">
+          <Image
+            src="/img3.jpg"
+            alt="Work Desk 3"
+            width={300}
+            height={600}
+            className="object-cover w-full h-full"
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
+4
+// app/page.tsx
+import Image from "next/image";
+
+export default function Services() {
+  const services = [
+    { title: "Product Development", img: "/service1.jpg" },
+    { title: "Software Testing", img: "/service2.jpg" },
+    { title: "IT Consulting", img: "/service3.jpg" },
+    { title: "IT Services", img: "/service4.jpg" },
+    { title: "Staffing Solutions", img: "/service5.jpg" },
+  ];
+
+  return (
+    <main className="px-6 py-12">
+      {/* Title */}
+      <h2 className="text-2xl font-bold text-center text-blue-700 mb-8">
+        Our Services
+      </h2>
+
+      {/* First Row - 3 items side by side */}
+      <div className="flex justify-center gap-6 mb-6">
+        {services.slice(0, 3).map((service, index) => (
+          <div
+            key={index}
+            className="relative w-72 h-56 rounded-lg overflow-hidden shadow-lg"
+          >
+            <Image
+              src={service.img}
+              alt={service.title}
+              layout="fill"
+              objectFit="cover"
+              className="rounded-lg"
+            />
+            <div className="absolute bottom-0 w-full bg-black bg-opacity-40 text-white text-lg font-semibold p-3 text-center">
+              {service.title}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Second Row - 2 items side by side, centered */}
+      <div className="flex justify-center gap-6">
+        {services.slice(3).map((service, index) => (
+          <div
+            key={index}
+            className="relative w-72 h-56 rounded-lg overflow-hidden shadow-lg"
+          >
+            <Image
+              src={service.img}
+              alt={service.title}
+              layout="fill"
+              objectFit="cover"
+              className="rounded-lg"
+            />
+            <div className="absolute bottom-0 w-full bg-black bg-opacity-40 text-white text-lg font-semibold p-3 text-center">
+              {service.title}
+            </div>
+          </div>
+        ))}
+      </div>
+    </main>
+  );
+}
+5th
+// components/Footer.tsx
+import Image from "next/image";
+import { FaInstagram, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
+import { RxTwitterLogo } from "react-icons/rx";
+
+export default function Footer() {
+  return (
+    <footer className="bg-white border-t">
+      {/* Top Section */}
+      <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-4 gap-8">
+        
+        {/* Logo + Social + Address */}
+        <div>
+          <div className="flex items-center space-x-2 mb-4">
+            <Image src="/logo.png" alt="WT Softech" width={40} height={40} />
+            <span className="text-xl font-bold tracking-wide">WT SOFTECH</span>
+          </div>
+
+          <p className="font-semibold mb-2">Follow Us</p>
+          <div className="flex space-x-4 mb-4 text-xl">
+            <FaInstagram className="cursor-pointer" />
+            <FaFacebookF className="cursor-pointer" />
+            <FaLinkedinIn className="cursor-pointer" />
+            <RxTwitterLogo className="cursor-pointer" />
+          </div>
+
+          <p className="text-sm text-gray-700">
+            Registered address: Plot No.172, First Floor, Kavuri Hills (Phase II),  
+            Madhapur, Hyderabad, 500081.
+          </p>
+        </div>
+
+        {/* Company */}
+        <div>
+          <h4 className="font-semibold text-blue-700 mb-3">Company</h4>
+          <ul className="space-y-2 text-sm text-gray-700">
+            <li>User Agreement</li>
+            <li>Privacy Help Center</li>
+            <li>Privacy Policy</li>
+            <li>Contact Us</li>
+          </ul>
+        </div>
+
+        {/* Products */}
+        <div>
+          <h4 className="font-semibold text-blue-700 mb-3">Products</h4>
+          <ul className="space-y-2 text-sm text-gray-700">
+            <li>Send Money to India</li>
+            <li>Calculator</li>
+            <li>How it Works</li>
+          </ul>
+        </div>
+
+        {/* Support */}
+        <div>
+          <h4 className="font-semibold text-blue-700 mb-3">Support</h4>
+          <ul className="space-y-2 text-sm text-gray-700">
+            <li>Help</li>
+            <li>Contact Us</li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Bottom Bar */}
+      <div className="bg-gradient-to-r from-blue-800 to-blue-600 text-white text-center py-3 text-sm">
+        © 2025 WT Softech All rights reserved.
+      </div>
+    </footer>
+  );
+}
+
+
+
+
+
