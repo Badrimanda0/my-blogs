@@ -1,0 +1,381 @@
+"use client";
+import Image from "next/image";
+import { Zap, Shield, Globe, CheckCircle } from "lucide-react";
+
+export default function WhyChooseUs() {
+  return (
+    <section className="w-full max-w-[1281px] mx-auto px-6 py-16 flex flex-col lg:flex-row items-start justify-between gap-12">
+      {/* Left Column */}
+      <div className="flex-1">
+        {/* Heading */}
+        <h2 className="text-[29.5px] font-bold text-[#0F172B] mb-12">
+          Why Choose Our Platform?
+        </h2>
+
+        {/* Features */}
+        <div className="flex flex-col gap-6">
+          {/* Feature 1 */}
+          <div className="flex items-start gap-4">
+            {/* Icon */}
+            <div className="w-12 h-12 flex items-center justify-center rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.06)] bg-white">
+              <Zap className="w-6 h-6 text-[#6240ED]" />
+            </div>
+            {/* Text */}
+            <div>
+              <h3 className="text-base font-semibold text-[#0F172B]">
+                Lightning Fast Performance
+              </h3>
+              <p className="text-sm text-gray-600 mt-1">
+                Process payroll in under 3 seconds with our optimized
+                infrastructure
+              </p>
+              <p className="text-xs text-gray-500 mt-2">
+                2.3s avg processing time
+              </p>
+            </div>
+          </div>
+
+          {/* Feature 2 (Highlighted Card) */}
+          <div className="flex items-start gap-4 p-6 rounded-2xl border border-gray-200 bg-white shadow-md">
+            {/* Icon */}
+            <div className="w-12 h-12 flex items-center justify-center rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.06)] bg-white">
+              <Shield className="w-6 h-6 text-[#6240ED]" />
+            </div>
+            {/* Text */}
+            <div>
+              <h3 className="text-base font-semibold text-[#0F172B]">
+                Enterprise Security
+              </h3>
+              <p className="text-sm text-gray-600 mt-1">
+                Bank-level encryption and compliance across all jurisdictions
+              </p>
+              <div className="flex items-center gap-3 mt-3">
+                <span className="text-xs text-[#E11D48] border rounded-full px-2 py-0.5">
+                  2.3s avg processing time
+                </span>
+                <span className="text-xs text-green-600 flex items-center gap-1">
+                  <CheckCircle className="w-4 h-4" /> Active
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Feature 3 */}
+          <div className="flex items-start gap-4">
+            {/* Icon */}
+            <div className="w-12 h-12 flex items-center justify-center rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.06)] bg-white">
+              <Globe className="w-6 h-6 text-[#6240ED]" />
+            </div>
+            {/* Text */}
+            <div>
+              <h3 className="text-base font-semibold text-[#0F172B]">
+                Global Reach
+              </h3>
+              <p className="text-sm text-gray-600 mt-1">
+                Operate seamlessly across 150+ countries with local compliance
+              </p>
+              <p className="text-xs text-gray-500 mt-2">
+                150+ countries supported
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Right Column (Image with Overlay Card) */}
+      <div className="flex-1 relative">
+        <Image
+          src="/team-meeting.jpg" // replace with your image path
+          alt="Enterprise Security"
+          width={600}
+          height={500}
+          className="rounded-[20px] object-cover"
+        />
+
+        {/* Overlay Card */}
+        <div className="absolute bottom-6 left-6 right-6 bg-[#0F172B]/80 text-white p-6 rounded-[16px]">
+          <h3 className="text-base font-semibold">Enterprise Security</h3>
+          <p className="text-sm text-gray-300 mt-1">
+            Bank-level encryption and compliance across all jurisdictions
+          </p>
+          <div className="flex items-center gap-2 mt-2 text-xs text-green-400">
+            <CheckCircle className="w-4 h-4" />
+            2.3s avg processing time
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+Questions.tsx
+"use client";
+
+import React, { useState } from "react";
+
+interface FaqItem {
+  q: string;
+  a: string;
+}
+
+const faqs: FaqItem[] = [
+  {
+    q: "How quickly can I start processing payroll with FX Master?",
+    a: "Many customers are able to begin processing payroll within 1–2 weeks depending on the size of the company and availability of required documents.",
+  },
+  {
+    q: "What countries and currencies do you support?",
+    a: "FX Master supports payroll in multiple countries and currencies. Reach out to our team for exact coverage.",
+  },
+  {
+    q: "How do you ensure compliance with local employment laws?",
+    a: "We work with local experts and update our platform for regulatory changes. Our team guides you through filings and contributions.",
+  },
+  {
+    q: "What are your fees and pricing structure?",
+    a: "Pricing depends on payroll complexity, number of employees and coverage. Contact sales for a tailored quote.",
+  },
+  {
+    q: "How secure is my company and employee data?",
+    a: "We use encryption, role-based access controls, and security audits to protect your data.",
+  },
+  {
+    q: "Can I integrate FX Master with HR & accounting systems?",
+    a: "Yes — FX Master provides APIs and connectors for HRIS and accounting systems.",
+  },
+  {
+    q: "What kind of support do you provide?",
+    a: "We offer email/phone support, onboarding, and optional account management for larger clients.",
+  },
+  {
+    q: "How do you handle currency exchange & transfers?",
+    a: "We partner with regulated FX providers and banks to ensure efficient transfers with competitive rates.",
+  },
+];
+
+export default function FAQ() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white flex flex-col items-center py-20 px-4">
+      {/* Header */}
+      <div className="flex flex-col items-center text-center mb-12">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white shadow-sm text-sm mb-4">
+          <svg
+            className="w-4 h-4 text-blue-600"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5 12l4 4L19 6"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+          <span className="text-xs text-gray-600">Got</span>
+        </div>
+
+        <h1 className="text-5xl md:text-6xl font-bold leading-tight text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-500 to-orange-400">
+          Questions?
+        </h1>
+        <p className="mt-4 text-base md:text-lg text-center text-gray-500 max-w-[866px]">
+          Find answers to common questions about FX Master Payroll. Can't find what you're looking for? Our support team is here to help.
+        </p>
+      </div>
+
+      {/* FAQ List */}
+      <div className="w-full max-w-[866px] space-y-4">
+        {faqs.map((item, idx) => {
+          const isOpen = openIndex === idx;
+          return (
+            <div
+              key={idx}
+              className="bg-white rounded-[16px] shadow-sm border border-gray-100 overflow-hidden"
+            >
+              <button
+                type="button"
+                aria-expanded={isOpen}
+                aria-controls={`faq-panel-${idx}`}
+                onClick={() => setOpenIndex(isOpen ? null : idx)}
+                className="w-full px-6 py-4 flex items-center justify-between focus:outline-none focus-visible:ring focus-visible:ring-blue-400"
+              >
+                <div className="flex items-center gap-4">
+                  {/* Number badge */}
+                  <div
+                    className="w-8 h-8 flex items-center justify-center text-white font-semibold shadow-md"
+                    style={{
+                      background: "linear-gradient(90deg, #063fbb 0%, #e04401 100%)",
+                      borderRadius: "9999px",
+                    }}
+                  >
+                    {idx + 1}
+                  </div>
+
+                  {/* Question text */}
+                  <div className="text-left">
+                    <div className="text-sm md:text-base font-medium text-gray-800">
+                      {item.q}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Chevron */}
+                <svg
+                  className={`w-5 h-5 text-gray-400 transform transition-transform duration-200 ${
+                    isOpen ? "rotate-180" : "rotate-0"
+                  }`}
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6 8l4 4 4-4"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+
+              {/* Answer panel */}
+              <div
+                id={`faq-panel-${idx}`}
+                className={`px-6 pb-4 text-sm md:text-base text-gray-600 transition-all duration-200 ${
+                  isOpen ? "block" : "hidden"
+                }`}
+              >
+                {item.a}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+Footer.tsx
+"use client";
+
+import { FaTwitter, FaLinkedinIn, FaInstagram, FaEnvelope } from "react-icons/fa";
+
+export default function Footer() {
+  return (
+    <footer className="bg-[#0D1B2A] text-gray-300 py-16 px-6">
+      {/* Top Section */}
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-10">
+        
+        {/* FX Master (Left Section) */}
+        <div className="space-y-6">
+          <div className="flex items-center gap-2">
+            {/* Logo */}
+            <div className="w-8 h-8 flex items-center justify-center bg-white/10 rounded">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                className="w-5 h-5 text-white"
+              >
+                <path
+                  d="M3 12L11 4L17 10"
+                  stroke="white"
+                  strokeWidth="1.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M11 20L21 10"
+                  stroke="white"
+                  strokeWidth="1.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+            <span className="text-white text-lg font-semibold">FX Master</span>
+          </div>
+
+          <p className="text-sm text-gray-400 leading-relaxed max-w-xs">
+            The UK’s fastest payroll payment solution. Streamline international payroll with compliance, transparency, and dedicated support.
+          </p>
+
+          {/* Social Icons */}
+          <div className="flex gap-3">
+            <a href="#" className="w-9 h-9 flex items-center justify-center bg-white/10 rounded-md hover:bg-white/20 transition">
+              <FaTwitter size={14} />
+            </a>
+            <a href="#" className="w-9 h-9 flex items-center justify-center bg-white/10 rounded-md hover:bg-white/20 transition">
+              <FaLinkedinIn size={14} />
+            </a>
+            <a href="#" className="w-9 h-9 flex items-center justify-center bg-white/10 rounded-md hover:bg-white/20 transition">
+              <FaInstagram size={14} />
+            </a>
+            <a href="#" className="w-9 h-9 flex items-center justify-center bg-white/10 rounded-md hover:bg-white/20 transition">
+              <FaEnvelope size={14} />
+            </a>
+          </div>
+        </div>
+
+        {/* Product */}
+        <div>
+          <h3 className="text-white font-semibold mb-4 text-sm">Product</h3>
+          <ul className="space-y-3 text-sm text-gray-400">
+            <li><a href="#" className="hover:text-white">Features</a></li>
+            <li><a href="#" className="hover:text-white">How it Works</a></li>
+            <li><a href="#" className="hover:text-white">Pricing</a></li>
+            <li><a href="#" className="hover:text-white">API Documentation</a></li>
+          </ul>
+        </div>
+
+        {/* Company */}
+        <div>
+          <h3 className="text-white font-semibold mb-4 text-sm">Company</h3>
+          <ul className="space-y-3 text-sm text-gray-400">
+            <li><a href="#" className="hover:text-white">About Us</a></li>
+            <li><a href="#" className="hover:text-white">Careers</a></li>
+            <li><a href="#" className="hover:text-white">Blog</a></li>
+            <li><a href="#" className="hover:text-white">Press Kit</a></li>
+          </ul>
+        </div>
+
+        {/* Resources */}
+        <div>
+          <h3 className="text-white font-semibold mb-4 text-sm">Resources</h3>
+          <ul className="space-y-3 text-sm text-gray-400">
+            <li><a href="#" className="hover:text-white">Help Center</a></li>
+            <li><a href="#" className="hover:text-white">Compliance Guide</a></li>
+            <li><a href="#" className="hover:text-white">Webinars</a></li>
+            <li><a href="#" className="hover:text-white">Case Studies</a></li>
+          </ul>
+        </div>
+
+        {/* Legal (beside Resources on same line) */}
+        <div>
+          <h3 className="text-white font-semibold mb-4 text-sm">Legal</h3>
+          <ul className="space-y-3 text-sm text-gray-400">
+            <li><a href="#" className="hover:text-white">Privacy Policy</a></li>
+            <li><a href="#" className="hover:text-white">Terms of Service</a></li>
+            <li><a href="#" className="hover:text-white">Security</a></li>
+            <li><a href="#" className="hover:text-white">GDPR</a></li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Divider */}
+      <div className="border-t border-gray-700 mt-10 pt-6">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-gray-400 text-xs gap-3">
+          <p>© 2024 FX Master Payroll. All rights reserved. Regulated by the FCA.</p>
+          <div className="flex items-center gap-3">
+            <span>Made in the UK</span>
+            <span>•</span>
+            <span>ISO 27001 Certified</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
